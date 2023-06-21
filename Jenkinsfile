@@ -8,11 +8,6 @@ pipeline {
         stage('build') {
             steps {
                 echo "Hello World Building version ${NEW_VERSION}"
-                withCredentials([
-                    usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PWD)
-                ]){
-                    sh "echo ${USER} ${PWD}"
-                }
             }
         }
         stage('test') {
