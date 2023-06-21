@@ -17,4 +17,15 @@ pipeline {
             }            
         }
     }
+    post {
+        always{
+            echo "Hello World Always"
+        }
+        failure{
+            echo "Hello World Failure"
+        }
+        success{
+            echo "Hello World Success"
+        }        
+    }
 }
