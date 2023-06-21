@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters {
+        choice(name: 'VERSION', choices: ['1.1.0','1.2.0','1.3.0'], description:'')
+    }
     environment{
         NEW_VERSION='1.3.0'
         SERVER_CREDENTIALS=credentials('server-credentials')
@@ -7,7 +10,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo "Hello World Building version ${NEW_VERSION}"
+                echo "Hello World Building version ${NEW_VERSION} ${params.VERSION}"
             }
         }
         stage('test') {
