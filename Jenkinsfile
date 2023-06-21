@@ -1,9 +1,12 @@
 pipeline {
     agent any
+    environment{
+        NEW_VERSION='1.3.0'
+    }
     stages {
         stage('build') {
             steps {
-                echo "Hello World Build"
+                echo "Hello World Building version ${NEW_VERSION}"
             }
         }
         stage('test') {
